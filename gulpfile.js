@@ -82,12 +82,12 @@ export function processScripts () {
 }
 
 export function createStack () {
-	return src(`${SOURCE_ROOT}icons/**/*.svg`)
+	return src(`${SOURCE_ROOT}assets/icons/**/*.svg`)
 		.pipe(cached(`icons`))
 		.pipe(remember(`icons`))
 		.pipe(svgo())
 		.pipe(stacksvg())
-		.pipe(dest(`${SERVER_ROOT}icons`))
+		.pipe(dest(`${SERVER_ROOT}assets/icons`))
 }
 
 export function optimizeImages () {
