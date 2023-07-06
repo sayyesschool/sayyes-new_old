@@ -1,0 +1,55 @@
+{
+	"site": {
+		"charset": "utf-8",
+		"name": "Say Yes",
+		"description": "Изучение английского языка для взрослых и детей Say Yes. Метро Павелецкая, Белорусская, Улица 1905 года, Беговая (ЦАО, ЮАО). Английский с нуля до автоматизма — заявка на тестирование и пробный урок"
+	},
+	"fonts": [
+		{
+			"family": "raleway",
+			"isVariable": true
+		},
+		{
+			"family": "shantell-sans",
+			"isVariable": true
+		}
+	],
+	"pages": [
+		{
+			"path": "/",
+			"title": "Главная"
+		},
+		{
+			"path": "/teachers/",
+			"title": "Преподаватели"
+		}
+	],
+	"mainNav": [
+		{
+			"path": "/",
+			"text": "Главная"
+		},
+		{
+			"path": "/teachers/",
+			"text": "Преподаватели"
+		}
+	],
+	"images": {
+		"hero": {
+			"ext": "jpg",
+			"maxdppx": 2,
+			"sizes": [
+				{
+					"viewport": "desktop",
+					"width": 1600,
+					"height": 740
+				}
+			]
+		}
+	},
+	"viewports": {
+		"desktop": 1920,
+		"tablet": 1280,
+		"mobile": null
+	}
+}
