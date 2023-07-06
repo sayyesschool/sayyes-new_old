@@ -27,9 +27,9 @@
 		"pretest": "pnpm --silent lint",
 		"lint": "pnpm /^lint:/",
 		"lint:spaces": "ec",
-		"lint:scripts": "eslint .",
-		"lint:styles": "stylelint \"source/sass/**/*.scss\"",
-		"lint:markup": "gulp processMarkup lintBem --series --silent && cd build && html-validator --quiet"
+		"lint:scripts": "eslint . --ignore-path .gitignore",
+		"lint:styles": "stylelint \"source/styles/**/*.scss\"",
+		"lint:markup": "gulp processMarkup lintBem --series --silent && cd public && html-validator --quiet"
 	},
 	"devDependencies": {
 		"autoprefixer": "^10.4.14",
