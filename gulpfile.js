@@ -24,8 +24,8 @@ import { deleteAsync } from "del"
 const { src, dest, watch, series, parallel } = gulp
 const sass = gulpSass(dartSass)
 const SOURCE_ROOT = `./source/`
-const SERVER_ROOT = `./public/`
 const DATA_PATH = `${SOURCE_ROOT}data.json`
+const { SERVER_ROOT } = readJsonFile(DATA_PATH)
 let isDevelopment = process.env.NODE_ENV !== `production`
 
 function readJsonFile (path) {

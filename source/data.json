@@ -51,5 +51,6 @@
 		"desktop": 1920,
 		"tablet": 1280,
 		"mobile": null
-	}
+	},
+	"SERVER_ROOT": "./public/"
 }
