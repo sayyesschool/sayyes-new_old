@@ -31,21 +31,17 @@ jobs:
           key: cache-pnpm-${{ hashFiles('./pnpn-lock.yaml') }}
           restore-keys: cache-pnpm-
 
-      - name: Install pnpm
-        run: corepack enable; corepack prepare pnpm@latest --activate
-
       - name: Install dependencies
-        run: pnpm i
+        run: corepack enable && corepack prepare pnpm@latest --activate && pnpm i
 
       - name: Build project
         run: pnpm prod
-
-      - name: Get project data
-        run: echo "DATA_JSON=$(jq -c . < source/data.json)" >> $GITHUB_ENV
+        env:
+          REPO_NAME: ${{ github.event.repository.name }}
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: '${{ fromJson(env.DATA_JSON).SERVER_ROOT }}'
+          folder: '${{ env.PATH_TO_DIST }}'
           branch: gh-pages
           single-commit: true

@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs"
+import { readFileSync, writeFileSync } from "node:fs"
 import { resolve } from "node:path"
 
 import gulp from "gulp"
@@ -24,9 +24,9 @@ import { deleteAsync } from "del"
 
 const { src, dest, watch, series, parallel } = gulp
 const sass = gulpSass(dartSass)
-const SOURCE_ROOT = `./source/`
-const DATA_PATH = `${SOURCE_ROOT}data.json`
-const { SERVER_ROOT } = readJsonFile(DATA_PATH)
+const PATH_TO_SOURCE = `./source/`
+const PATH_TO_DIST = `./public/`
+const PATH_TO_DATA = `${PATH_TO_SOURCE}data.json`
 let isDevelopment = process.env.NODE_ENV !== `production`
 
 function readJsonFile (path) {
@@ -34,23 +34,33 @@ function readJsonFile (path) {
 	return JSON.parse(file)
 }
 
+function setEnvVar (varName, varValue) {
+	if (process.env.CI) {
+		const envFilePath = process.env.GITHUB_ENV
+		const envFileContent = readFileSync(process.env.GITHUB_ENV, { encoding: `utf8` })
+		writeFileSync(envFilePath, `${envFileContent}\n${varName}=${varValue}`)
+	}
+}
+
 export function processMarkup () {
 	const env = new TwingEnvironment(new TwingLoaderRelativeFilesystem())
+	const data = { isDevelopment, ...readJsonFile(PATH_TO_DATA) }
+	data.site.dir = process.env.CI ? `/${process.env.REPO_NAME}/` : `/`
 
-	return src(`${SOURCE_ROOT}views/pages/**/*.twig`)
-		.pipe(twing(env, { isDevelopment, ...readJsonFile(DATA_PATH) }))
+	return src(`${PATH_TO_SOURCE}views/pages/**/*.twig`)
+		.pipe(twing(env, data))
 		.pipe(htmlmin({ collapseWhitespace: !isDevelopment }))
-		.pipe(dest(SERVER_ROOT))
+		.pipe(dest(PATH_TO_DIST))
 		.pipe(server.stream())
 }
 
 export function lintBem () {
-	return src(`${SERVER_ROOT}**/*.html`)
+	return src(`${PATH_TO_DIST}**/*.html`)
 		.pipe(bemlinter())
 }
 
 export function processStyles () {
-	const { viewports, images } = readJsonFile(DATA_PATH)
+	const { viewports, images } = readJsonFile(PATH_TO_DATA)
 	const sassOptions = {
 		functions: {
 			"getbreakpoint($bp)": (bp) => new dartSass.SassNumber(viewports[bp.dartValue]),
@@ -63,7 +73,7 @@ export function processStyles () {
 		},
 	}
 
-	return src(`${SOURCE_ROOT}styles/style.scss`, { sourcemaps: isDevelopment })
+	return src(`${PATH_TO_SOURCE}styles/style.scss`, { sourcemaps: isDevelopment })
 		.pipe(plumber())
 		.pipe(sass(sassOptions).on(`error`, sass.logError))
 		.pipe(postcss([
@@ -71,29 +81,29 @@ export function processStyles () {
 			autoprefixer(),
 			csso(),
 		]))
-		.pipe(dest(`${SERVER_ROOT}styles`, { sourcemaps: isDevelopment }))
+		.pipe(dest(`${PATH_TO_DIST}styles`, { sourcemaps: isDevelopment }))
 		.pipe(server.stream())
 }
 
 export function processScripts () {
-	return src(`${SOURCE_ROOT}scripts/**/*.js`)
+	return src(`${PATH_TO_SOURCE}scripts/**/*.js`)
 		.pipe(terser())
-		.pipe(dest(`${SERVER_ROOT}scripts`))
+		.pipe(dest(`${PATH_TO_DIST}scripts`))
 		.pipe(server.stream())
 }
 
 export function createStack () {
-	return src(`${SOURCE_ROOT}assets/icons/**/*.svg`)
+	return src(`${PATH_TO_SOURCE}assets/icons/**/*.svg`)
 		.pipe(cached(`icons`))
 		.pipe(remember(`icons`))
 		.pipe(svgo())
 		.pipe(stacksvg())
-		.pipe(dest(`${SERVER_ROOT}assets/icons`))
+		.pipe(dest(`${PATH_TO_DIST}assets/icons`))
 }
 
 export function optimizeImages () {
 	if (!isDevelopment) {
-		return src(`${SOURCE_ROOT}assets/images/**/*.{jpg,png}`)
+		return src(`${PATH_TO_SOURCE}assets/images/**/*.{jpg,png}`)
 			.pipe(sharpResponsive({
 				formats: [
 					{},
@@ -105,37 +115,37 @@ export function optimizeImages () {
 					},
 				],
 			}))
-			.pipe(dest(`${SERVER_ROOT}assets/images`))
+			.pipe(dest(`${PATH_TO_DIST}assets/images`))
 	} else {
-		return src(`${SOURCE_ROOT}assets/images/**/*.{jpg,png}`)
+		return src(`${PATH_TO_SOURCE}assets/images/**/*.{jpg,png}`)
 			.pipe(cached(`images`))
 			.pipe(remember(`images`))
-			.pipe(dest(`${SERVER_ROOT}assets/images`))
+			.pipe(dest(`${PATH_TO_DIST}assets/images`))
 	}
 }
 
 export function copyFonts () {
-	let fontsGlogs = readJsonFile(DATA_PATH).fonts.map((font) => `node_modules/@fontsource-variable/${font.family}/files/*{cyrillic,latin}*-wght-*.woff2`)
-	return src(fontsGlogs).pipe(dest(`${SERVER_ROOT}assets/fonts`))
+	let fontsGlogs = readJsonFile(PATH_TO_DATA).fonts.map((font) => `node_modules/@fontsource${font.isVariable ? `-variable` : ``}/${font.family}/files/*{cyrillic,latin}*-wght-*.woff2`)
+	return src(fontsGlogs).pipe(dest(`${PATH_TO_DIST}assets/fonts`))
 }
 
 const ASSETS_PATHS = [
-	`${SOURCE_ROOT}*.ico`,
-	`${SOURCE_ROOT}*.webmanifest`,
-	`${SOURCE_ROOT}assets/favicons/*`,
-	`${SOURCE_ROOT}assets/images/**/*.svg`,
+	`${PATH_TO_SOURCE}*.ico`,
+	`${PATH_TO_SOURCE}*.webmanifest`,
+	`${PATH_TO_SOURCE}assets/favicons/*`,
+	`${PATH_TO_SOURCE}assets/images/**/*.svg`,
 ]
 
 export function copyAssets () {
-	return src(ASSETS_PATHS, { base: `${SOURCE_ROOT}assets` })
+	return src(ASSETS_PATHS, { base: `${PATH_TO_SOURCE}assets` })
 		.pipe(cached(`assets`))
 		.pipe(remember(`assets`))
-		.pipe(dest(SERVER_ROOT))
+		.pipe(dest(PATH_TO_DIST))
 		.pipe(server.stream())
 }
 
 export async function removeBuild () {
-	await deleteAsync(SERVER_ROOT)
+	await deleteAsync(PATH_TO_DIST)
 }
 
 function reloadServer (done) {
@@ -146,34 +156,35 @@ function reloadServer (done) {
 export function startServer () {
 	server.init({
 		server: {
-			baseDir: SERVER_ROOT,
+			baseDir: PATH_TO_DIST,
 		},
 		cors: true,
 		notify: false,
 		ui: false,
 	})
 
-	watch(`${SOURCE_ROOT}views/**/*.twig`, series(processMarkup))
-	watch(`${SOURCE_ROOT}styles/**/*.scss`, series(processStyles))
-	watch(`${SOURCE_ROOT}scripts/**/*.js`, series(processScripts))
-	watch(`${SOURCE_ROOT}icons/**/*.svg`, series(createStack, reloadServer))
+	watch(`${PATH_TO_SOURCE}views/**/*.twig`, series(processMarkup))
+	watch(`${PATH_TO_SOURCE}styles/**/*.scss`, series(processStyles))
+	watch(`${PATH_TO_SOURCE}scripts/**/*.js`, series(processScripts))
+	watch(`${PATH_TO_SOURCE}icons/**/*.svg`, series(createStack, reloadServer))
 		.on(`unlink`, takeOutTheTrash(`icons`))
-	watch(`${SOURCE_ROOT}img/**/*.{jpg,png}`, series(optimizeImages, reloadServer))
+	watch(`${PATH_TO_SOURCE}img/**/*.{jpg,png}`, series(optimizeImages, reloadServer))
 		.on(`unlink`, takeOutTheTrash(`images`))
 	watch(ASSETS_PATHS, series(copyAssets))
 		.on(`unlink`, takeOutTheTrash(`assets`))
-	watch(`${SOURCE_ROOT}data.json`, parallel(processStyles, processMarkup, optimizeImages))
+	watch(`${PATH_TO_SOURCE}data.json`, parallel(processStyles, processMarkup, optimizeImages))
 
 	function takeOutTheTrash (cacheName) {
 		return (filepath) => {
 			remember.forget(cacheName, resolve(filepath))
 			delete cached.caches[cacheName][resolve(filepath)]
-			deleteAsync(`./${filepath}`.replace(SOURCE_ROOT, SERVER_ROOT))
+			deleteAsync(`./${filepath}`.replace(PATH_TO_SOURCE, PATH_TO_DIST))
 		}
 	}
 }
 
-export async function compileProject (done) {
+export function compileProject (done) {
+	setEnvVar(`PATH_TO_DIST`, PATH_TO_DIST)
 	series(
 		removeBuild,
 		parallel(

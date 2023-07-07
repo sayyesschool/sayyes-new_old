@@ -14,7 +14,7 @@
 					{%- endif %}
 					srcset="
 						{%- for dppx in densities -%}
-							/assets/images/{{ name }}-{{ size.viewport }}@{{ dppx }}x.{{ format }} {{ dppx }}x
+							{{ site.dir }}assets/images/{{ name }}-{{ size.viewport }}@{{ dppx }}x.{{ format }} {{ dppx }}x
 							{%- if dppx != image.maxdppx %}, {% endif -%}
 						{%- endfor -%}
 					"
@@ -25,10 +25,10 @@
 			{%- else -%}
 				<img
 					class="{{ class }}"
-					src="/assets/images/{{ name }}-{{ size.viewport }}@1x.{{ image.ext }}"
+					src="{{ site.dir }}assets/images/{{ name }}-{{ size.viewport }}@1x.{{ image.ext }}"
 					srcset="
 						{%- for dppx in densities|filter(dppx => dppx > 1) -%}
-							/assets/images/{{ name }}-{{ size.viewport }}@{{ dppx }}x.{{ image.ext }} {{ dppx }}x
+							{{ site.dir }}assets/images/{{ name }}-{{ size.viewport }}@{{ dppx }}x.{{ image.ext }} {{ dppx }}x
 							{%- if dppx != image.maxdppx -%}, {% endif -%}
 						{%- endfor -%}
 					"

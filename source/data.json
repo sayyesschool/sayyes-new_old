@@ -16,22 +16,22 @@
 	],
 	"pages": [
 		{
-			"path": "/",
-			"title": "Главная"
+			"title": "Главная",
+			"path": ""
 		},
 		{
-			"path": "/teachers/",
-			"title": "Преподаватели"
+			"title": "Преподаватели",
+			"path": "teachers/"
 		}
 	],
 	"mainNav": [
 		{
-			"path": "/",
-			"text": "Главная"
+			"text": "Главная",
+			"path": ""
 		},
 		{
-			"path": "/teachers/",
-			"text": "Преподаватели"
+			"text": "Преподаватели",
+			"path": "teachers/"
 		}
 	],
 	"images": {
@@ -51,6 +51,5 @@
 		"desktop": 1920,
 		"tablet": 1280,
 		"mobile": null
-	},
-	"SERVER_ROOT": "./public/"
+	}
 }
