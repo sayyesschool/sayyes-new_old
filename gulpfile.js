@@ -6,7 +6,8 @@ import cached from "gulp-cached"
 import remember from "gulp-remember"
 import server from "browser-sync"
 import plumber from "gulp-plumber"
-import twig from "gulp-twig"
+import twing from "gulp-twing"
+import { TwingEnvironment, TwingLoaderRelativeFilesystem } from "twing"
 import htmlmin from "gulp-htmlmin"
 import bemlinter from "gulp-html-bemlinter"
 import * as dartSass from "sass"
@@ -34,10 +35,10 @@ function readJsonFile (path) {
 }
 
 export function processMarkup () {
+	const env = new TwingEnvironment(new TwingLoaderRelativeFilesystem())
+
 	return src(`${SOURCE_ROOT}views/pages/**/*.twig`)
-		.pipe(twig({
-			data: { isDevelopment, ...readJsonFile(DATA_PATH) },
-		}))
+		.pipe(twing(env, { isDevelopment, ...readJsonFile(DATA_PATH) }))
 		.pipe(htmlmin({ collapseWhitespace: !isDevelopment }))
 		.pipe(dest(SERVER_ROOT))
 		.pipe(server.stream())

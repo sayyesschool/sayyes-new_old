@@ -49,7 +49,7 @@
 		"gulp-stacksvg": "^2.0.2",
 		"gulp-svgmin": "^4.1.0",
 		"gulp-terser": "^2.1.0",
-		"gulp-twig": "^1.2.0",
+		"gulp-twing": "^4.0.0",
 		"husky": "^8.0.3",
 		"postcss": "^8.4.25",
 		"postcss-csso": "^6.0.1",
@@ -58,6 +58,7 @@
 		"sass": "^1.63.6",
 		"stylelint": "^15.10.1",
 		"stylelint-config-firefoxic": "^2.0.0",
+		"twing": "^5.1.4",
 		"w3c-html-validator": "^1.4.0"
 	}
 }
