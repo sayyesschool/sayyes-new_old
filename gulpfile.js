@@ -101,12 +101,11 @@ export function createStack () {
 		.pipe(dest(`${PATH_TO_DIST}assets/icons`))
 }
 
-export function optimizeImages () {
+export function optimizeImages (done) {
 	if (!isDevelopment) {
 		return src(`${PATH_TO_SOURCE}assets/images/**/*.{jpg,png}`)
 			.pipe(sharpResponsive({
 				formats: [
-					{},
 					{
 						format: `webp`,
 					},
@@ -116,12 +115,15 @@ export function optimizeImages () {
 				],
 			}))
 			.pipe(dest(`${PATH_TO_DIST}assets/images`))
-	} else {
-		return src(`${PATH_TO_SOURCE}assets/images/**/*.{jpg,png}`)
-			.pipe(cached(`images`))
-			.pipe(remember(`images`))
-			.pipe(dest(`${PATH_TO_DIST}assets/images`))
 	}
+	done()
+}
+
+export function copyImages () {
+	return src(`${PATH_TO_SOURCE}assets/images/**/*.{jpg,png,svg}`)
+		.pipe(cached(`images`))
+		.pipe(remember(`images`))
+		.pipe(dest(`${PATH_TO_DIST}assets/images`))
 }
 
 export function copyFonts () {
@@ -133,7 +135,6 @@ const ASSETS_PATHS = [
 	`${PATH_TO_SOURCE}*.ico`,
 	`${PATH_TO_SOURCE}*.webmanifest`,
 	`${PATH_TO_SOURCE}assets/favicons/*`,
-	`${PATH_TO_SOURCE}assets/images/**/*.svg`,
 ]
 
 export function copyAssets () {
@@ -193,6 +194,7 @@ export function compileProject (done) {
 			processScripts,
 			createStack,
 			copyAssets,
+			copyImages,
 			copyFonts,
 			optimizeImages,
 		),
