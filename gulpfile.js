@@ -162,6 +162,11 @@ export function startServer () {
 		cors: true,
 		notify: false,
 		ui: false,
+	}, (err, bs) => {
+		bs.addMiddleware(`*`, (req, res) => {
+			res.write(readFileSync(`${PATH_TO_DIST}404.html`))
+			res.end()
+		})
 	})
 
 	watch(`${PATH_TO_SOURCE}views/**/*.twig`, series(processMarkup))
