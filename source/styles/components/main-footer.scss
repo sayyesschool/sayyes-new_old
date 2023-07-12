@@ -1,0 +1,53 @@
+.main-footer__content {
+	font-size: 18px;
+	font-weight: 600;
+	line-height: normal;
+	display: grid;
+	gap: var(--col-gap);
+	grid-template-columns:
+		[logo-start contacts-start legal-start]
+		var(--col-size-4)
+		[logo-end contacts-end legal-end nav-start social-start copyright-start]
+		var(--col-size-3)
+		[social-end copyright-end license-start production-start]
+		var(--col-size-5)
+		[nav-end license-end production-end];
+	grid-template-areas:
+		"logo      nav       nav"
+		"contacts  nav       nav"
+		"contacts  social    license"
+		".         .         ."
+		"legal     copyright production";
+}
+
+.main-footer__logo {
+	grid-area: logo;
+}
+
+.main-footer__nav {
+	grid-area: nav;
+}
+
+.main-footer__contacts {
+	grid-area: contacts;
+}
+
+.main-footer__social {
+	grid-area: social;
+}
+
+.main-footer__license {
+	grid-area: license;
+}
+
+.main-footer__legal {
+	grid-area: legal;
+}
+
+.main-footer__copyright {
+	grid-area: copyright;
+}
+
+.main-footer__production {
+	grid-area: production;
+}
