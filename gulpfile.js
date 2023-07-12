@@ -174,7 +174,7 @@ export function startServer () {
 	watch(`${PATH_TO_SOURCE}scripts/**/*.js`, series(processScripts))
 	watch(`${PATH_TO_SOURCE}icons/**/*.svg`, series(createStack, reloadServer))
 		.on(`unlink`, takeOutTheTrash(`icons`))
-	watch(`${PATH_TO_SOURCE}img/**/*.{jpg,png}`, series(optimizeImages, reloadServer))
+	watch(`${PATH_TO_SOURCE}assets/images/**/*.{jpg,png,svg}`, series(copyImages, optimizeImages, reloadServer))
 		.on(`unlink`, takeOutTheTrash(`images`))
 	watch(ASSETS_PATHS, series(copyAssets))
 		.on(`unlink`, takeOutTheTrash(`assets`))
