@@ -2,11 +2,5 @@
 {% extends "../layouts/base.twig" %}
 
 {% block main %}
-	<h1>Контент главной страницы</h1>
-
-	<div class="hero">
-		{# Пример вставки picture #}
-		{% include "../templates/picture.twig" with {name: "hero", class: "hero__image", alt: "Альтернативный текст."} %}
-	</div>
-
+	{{ include("../components/heading.twig") }}
 {% endblock %}
