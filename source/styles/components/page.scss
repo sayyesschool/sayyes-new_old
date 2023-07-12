@@ -43,6 +43,7 @@
 		var(--template-size-narrow)
 		[center-end]
 		var(--no-indent,);
+	align-content: start;
 
 	&_size_narrow {
 		grid-template-columns:
