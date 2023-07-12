@@ -1,5 +1,6 @@
 .page {
-	block-size: 100%;
+	min-block-size: 100%;
+	display: grid;
 	font-family: var(--font-family-main);
 	font-size: 24px;
 	line-height: 25px;
@@ -9,4 +10,6 @@
 .page__body {
 	margin: 0;
 	min-block-size: 100%;
+	display: grid;
+	grid-template-rows: auto 1fr;
 }
