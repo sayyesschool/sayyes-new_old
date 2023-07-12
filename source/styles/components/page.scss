@@ -1,4 +1,23 @@
 .page {
+	--full-offset: 1fr;
+	--wide-offset: 130px;
+	--col-gap: 20px;
+	--col-count: 12;
+	--col-size-1: 90px;
+
+	@for $col from 2 through 12 {
+		--col-size-#{$col}: calc(var(--col-size-1) * #{$col} + var(--col-gap) * #{$col - 1});
+	}
+	--template-main:
+		[full-start] var(--full-offset)
+		[wide-start] var(--wide-offset)
+		[narrow-start] var(--col-size-12)
+		[narrow-end] var(--wide-offset)
+		[wide-end] var(--full-offset)
+		[full-end];
+	--template-size-narrow: var(--col-size-12);
+	--template-size-wide: calc(var(--col-size-12) + 2 * (var(--col-gap) + var(--wide-offset)));
+
 	min-block-size: 100%;
 	display: grid;
 	font-family: var(--font-family-main);
@@ -12,4 +31,39 @@
 	min-block-size: 100%;
 	display: grid;
 	grid-template-rows: auto 1fr;
+}
+
+.page__centerer {
+	margin-inline: auto;
+	column-gap: var(--col-gap);
+	display: grid;
+	grid-template-columns:
+		var(--no-indent,)
+		[center-start]
+		var(--template-size-narrow)
+		[center-end]
+		var(--no-indent,);
+
+	&_size_narrow {
+		grid-template-columns:
+			var(--no-indent, [full-start] 1fr [center-start])
+			var(--template-size-narrow)
+			var(--no-indent, [center-end] 1fr [full-end]);
+	}
+
+	&_size_wide {
+		grid-template-columns:
+			var(--no-indent, [full-start] 1fr [center-start])
+			var(--template-size-wide)
+			var(--no-indent, [center-end] 1fr [full-end]);
+	}
+
+	&_size_full {
+		grid-template-columns: 1fr;
+	}
+
+	&_has-no-indent {
+		--teplate-indent: 1fr;
+		margin-inline: 0;
+	}
 }
