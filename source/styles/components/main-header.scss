@@ -1,7 +1,43 @@
 .main-header {
+	--main-header-bg-color: var(--violet-active);
+	--main-header-offset: calc(var(--wide-offset) + var(--col-gap));
+	position: relative;
+	z-index: 1;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	padding-block: 7px;
+	line-height: normal;
 	font-size: 14px;
 	font-weight: 800;
-	line-height: normal;
-	letter-spacing: 1.4px;
-	text-transform: uppercase;
+	color: var(--white);
+	background-color: var(--main-header-bg-color);
+
+	&:hover { // WIP: Временно по ховеру.
+		--main-header-offset: 50vw;
+	}
+
+	&::after {
+		content: "";
+		display: block;
+		position: absolute;
+		z-index: -1;
+		inset-block: 0;
+		inset-inline: calc(-1 * var(--main-header-offset)) 0;
+		block-size: 100%;
+		border-radius: 20px;
+		background-color: var(--main-header-bg-color);
+		box-shadow: var(--main-header-offset) 0 0 0 var(--main-header-bg-color);
+
+		@media not (prefers-reduced-motion) {
+			transition:
+				inset-inline 0.3s ease-in-out,
+				box-shadow 0.3s ease-in-out;
+		}
+	}
+}
+
+.main-header__list {
+	margin: 0;
+	padding: 0;
 }

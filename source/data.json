@@ -24,14 +24,10 @@
 			"path": "teachers/"
 		}
 	],
-	"mainNav": [
+	"main_nav": [
 		{
 			"text": "О Say Yes",
 			"path": "about/"
-		},
-		{
-			"text": "Преподаватели",
-			"path": "teachers/"
 		},
 		{
 			"text": "Взрослым",
@@ -58,6 +54,30 @@
 			"path": "contacts/"
 		}
 	],
+	"contacts": {
+		"phones": [
+			{
+				"text": "+7 499 650–53–47",
+				"href": "tel:+74996505347"
+			},
+			{
+				"text": "+7 929 554–65–99",
+				"href": "tel:+79295546599"
+			}
+		],
+		"connections": [
+			{
+				"text": "Заказать звонок",
+				"href": "javascript:undefined",
+				"icon": "phone"
+			},
+			{
+				"text": "Напишите нам в WhatsApp",
+				"href": "https://wa.me/79295546599",
+				"icon": "whatsapp"
+			}
+		]
+	},
 	"images": {
 		"hero": {
 			"ext": "jpg",

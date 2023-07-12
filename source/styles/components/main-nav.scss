@@ -1,14 +1,18 @@
 .main-nav {
 	display: grid;
+	padding-block: 6px;
 	grid-template-columns: auto;
+	line-height: normal;
+	font-size: 14px;
+	font-weight: 800;
 }
 
 .main-nav__list {
+	--nav-item-gap: 60px;
 	margin: 0;
 	padding: 0;
 	list-style: none;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	gap: 60px;
 }

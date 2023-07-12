@@ -1,4 +1,57 @@
-<header class="main-header page__centerer">
-	{{ include("./top-bar.twig") }}
-	{{ include("./main-nav.twig") }}
+<header class="page__centerer">
+	<div class="main-header {{ classes }}">
+		{{ include("../components/logo.twig", { classes: "main-header__logo", fill: "white" }) }}
+		<ul class="main-header__list nav">
+			<li class="nav__item nav__item_is-decorated">
+				<a class="nav__link link" href="">Бесплатный урок</a>
+			</li>
+			<li class="nav__item">
+				<a class="nav__link link" href="">Онлайн тест</a>
+			</li>
+			<li class="nav__item">
+				<a class="nav__link link" href="">Обратный звонок</a>
+			</li>
+		</ul>
+		<dl class="main-header__contacts contacts contacts_direction_inline">
+			<div class="contacts__connections">
+				<dt class="visually-hidden">Связаться с нами:</dt>
+				{% for connection in contacts.connections %}
+				<dd class="contacts__value">
+					<a class="contacts__link contacts__link_icon_{{ connection.icon }} link link_has-icon" href="{{ connection.href }}"><span class="visually-hidden">{{ connection.text }}</span></a>
+				</dd>
+				{% endfor %}
+			</div>
+			<div class="contacts__phones">
+				<dt class="visually-hidden">Телефоны:</dt>
+				{% for phone in contacts.phones %}
+				<dd class="contacts__value">
+					<a class="contacts__link link" href="{{ phone.href }}">{{ phone.text }}</a>
+				</dd>
+				{% endfor %}
+			</div>
+			<div class="contacts__info">
+				<dt class="visually-hidden">Адрес:</dt>
+				<dd class="contacts__value"><address>Москва</address></dd>
+			</div>
+			<div class="contacts__info">
+				<dt class="visually-hidden">Время работы</dt>
+				<dd class="contacts__value">ПН-ПТ с 12:00 до 21:00</dd>
+			</div>
+		</dl>
+		<ul class="main-header__list nav">
+			<li class="nav__item">
+				<a class="nav__link link" href="{{ site.dir}}login/">Войти</a>
+			</li>
+		</ul>
+	</div>
+
+	<nav class="main-nav {{ classes }}">
+		<ul class="main-nav__list nav">
+			{% for navLink in main_nav %}
+			<li class="nav__item">
+				<a href="{{ site.dir }}{{ navLink.path }}" class="nav__link link" {% if permalink == navLink.path %} aria-current="page"{% endif %}>{{ navLink.text }}</a>
+			</li>
+			{% endfor %}
+		</ul>
+	</nav>
 </header>

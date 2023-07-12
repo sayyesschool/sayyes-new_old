@@ -12,3 +12,7 @@ picture,
 source {
 	display: contents;	// чтобы не мешались в гридах
 }
+
+:focus-visible {
+	outline-offset: 2px;
+}

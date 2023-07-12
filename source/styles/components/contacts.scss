@@ -1,0 +1,48 @@
+.contacts {
+	display: grid;
+
+	&_direction {
+		&_inline {
+			grid-template-columns: repeat(3, auto);
+			grid-column-gap: var(--col-gap);
+		}
+	}
+}
+
+.contacts__connections {
+	grid-column: 1 / 2;
+	grid-row: 1 / span 2;
+}
+
+.contacts__phones {
+	grid-column: 2 / 3;
+	grid-row: 1 / span 2;
+}
+
+.contacts__info {
+	grid-column: 3 / 4;
+
+	& address {
+		font-style: normal;
+	}
+}
+
+.contacts__value {
+	margin: 0;
+	padding: 0;
+}
+
+.contacts__link {
+	--icon-size: 16px;
+	color: inherit;
+
+	&_icon {
+		&_phone {
+			--icon-shape: url("#{$stack}phone");
+		}
+
+		&_whatsapp {
+			--icon-shape: url("#{$stack}whatsapp");
+		}
+	}
+}

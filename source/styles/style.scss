@@ -1,4 +1,4 @@
-@import "./utils/_outline.scss";
+// @import "./utils/_outline.scss";
 @import "./utils/media.scss";
 @import "./utils/mixins.scss";
 @import "./utils/fonts.scss";
@@ -8,6 +8,8 @@
 @import "./components/page.scss";
 @import "./components/main-header.scss";
 @import "./components/main-footer.scss";
-@import "./components/top-bar.scss";
 @import "./components/main-nav.scss";
+@import "./components/nav.scss";
+@import "./components/contacts.scss";
+@import "./components/link.scss";
 @import "./components/content.scss";
