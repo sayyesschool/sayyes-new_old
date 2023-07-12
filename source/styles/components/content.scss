@@ -1,0 +1,13 @@
+.content {
+	@for $lvl from 1 through 4 {
+		& h#{$lvl} {
+			font-size: var(--font-size-h#{$lvl});
+			line-height: var(--line-height-h#{$lvl});
+		}
+	}
+
+	p {
+		font-size: var(--font-size-main);
+		line-height: var(--line-height-main);
+	}
+}
