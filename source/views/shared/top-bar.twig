@@ -1,3 +1,47 @@
 <div class="top-bar {{ classes }}">
-	<img src="{{ site.dir }}assets/images/logo.svg" alt="Логотип школы английского «Say Yes!»">
+	<a class="top-bar__logo logo link" href="{{ site.dir }}" {% if page.path == "" %}aria-current="page"{% endif %}>
+		<img class="logo__image" src="{{ site.dir }}assets/images/logo.svg" width="139" height="52"  alt="Логотип школы английского «Say Yes!»">
+	</a>
+	<ul class="top-bar__menu menu">
+		<li class="menu__item">
+			<a class="menu__link link" href="">Бесплатный урок</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link link" href="">Онлайн тест</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link link" href="">Обратный звонок</a>
+		</li>
+	</ul>
+	<dl class="top-bar__contacts contacts">
+		<div>
+			<dt class="visually-hidden">Связаться с нами:</dt>
+			<dd>
+				<a class="link" href="javascript:undefined"><span class="visually-hidden">Заказать звонок</span></a>
+			</dd>
+			<dd>
+				<a class="link" href="https://wa.me/79295546599"><span class="visually-hidden">Напишите нам в WhatsApp</span></a>
+			</dd>
+		</div>
+		<div class="">
+			<dt class="visually-hidden">Телефоны</dt>
+			<dd class="">
+				<a class="link" href="tel:+74996505347">+7 499 650–53–47</a>
+			</dd>
+			<dd class="">
+				<a class="link" href="https://wa.me/79295546599">+7 929 554–65–99</a>
+			</dd>
+		</div>
+		<div>
+			<dt class="visually-hidden">Адрес:</dt>
+			<dd class="contacts__address"><address>Москва</address></dd>
+		</div>
+		<div>
+			<dt class="visually-hidden">Время работы</dt>
+			<dd>ПН-ПТ с 12:00 до 21:00</dd>
+		</div>
+	</dl>
+	<div class="top-bar__item">
+		<a class="top-bar__link" href="{{ site.dir}}login/">Войти</a>
+	</div>
 </div>
