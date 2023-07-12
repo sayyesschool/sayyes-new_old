@@ -1,3 +1,23 @@
+// stylelint-disable declaration-colon-space-after
 :root {
-	--color-main: #000000;
+	--yellow:			#ffd754;
+	--yellow-hover:		#ffde76;
+	--yellow-active:	#ffce2d;
+	--black:			#262626;
+	--black-hover:		#302f30;
+	--black-active:		#0d0d0d;
+	--violet:			#7831b2;
+	--violet-hover:		#9259c0;
+	--violet-active:	#5e288a;
+	--pale-purple:		#a68ad5;
+	--pink:				#e71985;
+	--red:				#e71919;
+	--white:			#fffcff;
+	--bg-color:			#f9f4f2;
+	--pop-up-window:	#f8f0ee;
+	--unnamed-color-1:	#f9e2de;
+	--unnamed-color-2:	#f6e7e5;
+	--grey:				#e5e3e2;
+	--color-main: var(--black);
+	--color-accent: var(--violet);
 }
