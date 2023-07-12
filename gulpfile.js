@@ -172,7 +172,7 @@ export function startServer () {
 	watch(`${PATH_TO_SOURCE}views/**/*.twig`, series(processMarkup))
 	watch(`${PATH_TO_SOURCE}styles/**/*.scss`, series(processStyles))
 	watch(`${PATH_TO_SOURCE}scripts/**/*.js`, series(processScripts))
-	watch(`${PATH_TO_SOURCE}icons/**/*.svg`, series(createStack, reloadServer))
+	watch(`${PATH_TO_SOURCE}assets/icons/**/*.svg`, series(createStack, reloadServer))
 		.on(`unlink`, takeOutTheTrash(`icons`))
 	watch(`${PATH_TO_SOURCE}assets/images/**/*.{jpg,png,svg}`, series(copyImages, optimizeImages, reloadServer))
 		.on(`unlink`, takeOutTheTrash(`images`))
