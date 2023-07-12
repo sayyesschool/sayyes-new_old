@@ -26,12 +26,36 @@
 	],
 	"mainNav": [
 		{
-			"text": "Главная",
-			"path": ""
+			"text": "О Say Yes",
+			"path": "about/"
 		},
 		{
 			"text": "Преподаватели",
 			"path": "teachers/"
+		},
+		{
+			"text": "Взрослым",
+			"path": "adults/"
+		},
+		{
+			"text": "Детям",
+			"path": "children/"
+		},
+		{
+			"text": "Формы обучения",
+			"path": "education-forms/"
+		},
+		{
+			"text": "Цены",
+			"path": "prices/"
+		},
+		{
+			"text": "Компаниям",
+			"path": "to-companies/"
+		},
+		{
+			"text": "Контакты",
+			"path": "contacts/"
 		}
 	],
 	"images": {
