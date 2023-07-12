@@ -1,8 +1,6 @@
 <footer class="main-footer page__centerer">
 	<div class="main-footer__content">
-		<a class="main-footer__logo logo link" href="{{ site.dir }}" {% if page.path=="" %}aria-current="page" {% endif %}>
-			<img class="logo__image" src="{{ site.dir }}assets/images/logo.svg" width="139" height="52" alt="Логотип школы английского «Say Yes!»">
-		</a>
+		{{ include("../components/logo.twig", { classes: "main-footer__logo" }) }}
 		<dl class="main-footer__contacts contacts">
 			<div>
 				<dt>Телефоны:</dt>

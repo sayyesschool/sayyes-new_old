@@ -1,7 +1,5 @@
 <div class="top-bar {{ classes }}">
-	<a class="top-bar__logo logo link" href="{{ site.dir }}" {% if page.path == "" %}aria-current="page"{% endif %}>
-		<img class="logo__image" src="{{ site.dir }}assets/images/logo.svg" width="139" height="52"  alt="Логотип школы английского «Say Yes!»">
-	</a>
+	{{ include("../components/logo.twig", { classes: "top-bar__logo", fill: "white" }) }}
 	<ul class="top-bar__menu menu">
 		<li class="menu__item">
 			<a class="menu__link link" href="">Бесплатный урок</a>

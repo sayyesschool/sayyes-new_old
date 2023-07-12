@@ -1,0 +1,5 @@
+<a class="logo link {{ classes }}" href="{{ site.dir }}" {% if page.path == "" %}aria-current="page"{% endif %}>
+	<svg class="logo__image" width="140" height="56"  aria-label="Логотип школы английского «Say Yes!»">
+		<use href="{{ site.dir }}assets/images/logo.svg#{{ variant ?? "school" }}_{{ fill ?? "violet" }}" aria-hidden="true"/>
+	</svg>
+</a>
