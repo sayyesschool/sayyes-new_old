@@ -1,3 +1,21 @@
+.main-footer {
+	--main-footer-bg-color: var(--white);
+	background-color: var(--main-footer-bg-color);
+	position: relative;
+	padding-block-start: 50px;
+
+	&::after {
+		content: "";
+		display: block;
+		position: absolute;
+		z-index: -1;
+		inset-inline: -100vw 0;
+		block-size: 100%;
+		background: var(--main-footer-bg-color);
+		box-shadow: 100vw 0 0 0 var(--main-footer-bg-color);
+	}
+}
+
 .main-footer__content {
 	font-size: 18px;
 	font-weight: 600;
@@ -24,8 +42,36 @@
 	grid-area: logo;
 }
 
+.main-footer__heading {
+	margin-block: 11px;
+	line-height: 0.9;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 800;
+	letter-spacing: 0.9px;
+	text-transform: uppercase;
+}
+
+.main-footer__link {
+	color: inherit;
+
+	&[href^="tel:"] {
+		font-weight: 800;
+		letter-spacing: 0.9px;
+	}
+}
+
 .main-footer__nav {
 	grid-area: nav;
+	margin-block: 34px;
+	display: grid;
+}
+
+.main-footer__nav-list {
+	--items-row-gap: 4px;
+	display: grid;
+	grid-template-columns: var(--col-size-3) var(--col-size-2) var(--col-size-3);
+	column-gap: var(--col-gap);
 }
 
 .main-footer__contacts {

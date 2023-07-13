@@ -54,6 +54,130 @@
 			"path": "contacts/"
 		}
 	],
+	"footer": {
+		"contacts": [
+			{
+				"key": "Телефоны",
+				"is_key_hidden": true,
+				"values": [
+					{
+						"text": "+7 499 650–53–47",
+						"url": "tel:+74996505347"
+					},
+					{
+						"text": "+7 929 554–65–99",
+						"url": "tel:+79295546599"
+					}
+				]
+			},
+			{
+				"key": "Связаться с нами",
+				"is_key_hidden": true,
+				"values": [
+					{
+						"text": "Заказать звонок",
+						"url": "javascript:undefined",
+						"icon": "phone"
+					},
+					{
+						"text": "Напишите нам в WhatsApp",
+						"url": "https://wa.me/79295546599",
+						"icon": "whatsapp"
+					}
+				]
+			},
+			{
+				"key": "Адрес школы",
+				"values": [
+					{
+						"text": "г. Москва, м. Павелецкая, ул. Кожевническая, дом 14, корпус 1, строение 2"
+					}
+				]
+			},
+			{
+				"key": "E-mail",
+				"values": [
+					{
+						"text": "info@sayes.ru",
+						"href": "mailto:info@sayes.ru"
+					}
+				]
+			}
+		],
+		"nav": [
+			{
+				"text": "О Say Yes",
+				"items": [
+					{
+						"text": "Кто мы",
+						"slug": "how-we-are"
+					},
+					{
+						"text": "Преподаватели",
+						"slug": "teachers"
+					},
+					{
+						"text": "Методика",
+						"slug": "methodology"
+					},
+					{
+						"text": "Прогресс студентов",
+						"slug": "student-progress"
+					},
+					{
+						"text": "Вакансии",
+						"slug": "vacancies"
+					}
+				]
+			},
+			{
+				"text": "Курсы",
+				"items": [
+					{
+						"text": "Взрослым",
+						"slug": "for-adults"
+					},
+					{
+						"text": "Детям",
+						"slug": "for-children"
+					},
+					{
+						"text": "Компаниям",
+						"slug": "for-companies"
+					},
+					{
+						"text": "Цены",
+						"slug": "prices"
+					}
+				]
+			},
+			{
+				"text": "Программы",
+				"items": [
+					{
+						"text": "Группа офлайн",
+						"slug": "group-offline"
+					},
+					{
+						"text": "Группа онлайн",
+						"slug": "group-online"
+					},
+					{
+						"text": "Индивидуально офлайн",
+						"slug": "personal-offline"
+					},
+					{
+						"text": "Индивидуально онлайн",
+						"slug": "personal-online"
+					},
+					{
+						"text": "Разговорный онлайн клуб",
+						"slug": "speaking-club"
+					}
+				]
+			}
+		]
+	},
 	"contacts": {
 		"phones": [
 			{
@@ -84,8 +208,50 @@
 			{
 				"text": "ПН-ПТ с 12:00 до 21:00"
 			}
+		],
+		"address_long": [
+			{
+				"text": "г. Москва, м. Павелецкая, ул. Кожевническая, дом 14, корпус 1, строение 2"
+			}
+		],
+		"emails": [
+			{
+				"text": "info@sayes.ru",
+				"href": "mailto:info@sayes.ru"
+			}
 		]
 	},
+	"social": [
+		{
+			"text": "Telegram",
+			"icon": "telegram",
+			"url": "https://t.me/sayyes2english",
+			"is_text_hidden": true
+		},
+		{
+			"text": "Instagram",
+			"icon": "instagram",
+			"url": "https://instagram.com/sayyes2english",
+			"is_text_hidden": true
+		},
+		{
+			"text": "Youtube",
+			"icon": "youtube",
+			"url": "https://www.youtube.com/channel/UCK4utZpkwhJhGD75B_ZSkDg",
+			"is_text_hidden": true
+		}
+	],
+	"production": [
+		{
+			"key": "Дизайн сайта",
+			"values": [
+				{
+					"text": "Насибуллина Екатерина",
+					"url": "https://t.me/katie_webdesigner"
+				}
+			]
+		}
+	],
 	"images": {
 		"hero": {
 			"ext": "jpg",
