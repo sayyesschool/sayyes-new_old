@@ -1,0 +1,29 @@
+{#
+# Template for the key/value list
+#
+# @param {Boolean} is_ordered - Whether the list is ordered.
+# @param {Object} classes - Object with the classes for the tags.
+# @param {String} classes.list - Classes for the ul/ol tag (separated by spaces).
+# @param {String} classes.items - Classes for the li tags (separated by spaces).
+# @param {String} classes.text - Classes for the tag around the text (separated by spaces).
+# @param {Object} classes.subclasses - Object of classes for the nested list.
+# @param {Array} items - Texts for list items (can be links).
+# @requires ./link.twig
+#}
+<{{ is_orderd ? "ol" : "ul"}} class="list {{ classes.list ?? "" }}">
+	{% for item in items %}
+	<li class="list__item {{ classes.items ?? "" }}">
+		{% if item.url or item.slug %}
+		{{ include("./link.twig", { link: item }) }}
+		{% else %}
+		<span class="{{ classes.text }}">{{ item.text ?? "" }}</span>
+		{% endif %}
+		{% if item.items %}
+		{{ include("./list.twig", {
+			items: item.items,
+			classes: classes.subclasses
+		}) }}
+		{% endif %}
+	</li>
+	{% endfor %}
+</{{ is_orderd ? "ol" : "ul"}}>

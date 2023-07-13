@@ -1,0 +1,25 @@
+.list {
+	padding-inline-start: var(--list-indent, 0);
+	display: grid;
+	column-gap: var(--items-col-gap, 0);
+	row-gap: var(--items-row-gap, 0);
+
+	&_dir {
+		&_inline {
+			display: flex;
+			flex-wrap: wrap;
+		}
+	}
+
+	&_is-unmarked {
+		--marker-color: transparent;
+	}
+}
+
+.list__item {
+	margin: 0;
+
+	&::marker {
+		color: var(--marker-color, auto);
+	}
+}
