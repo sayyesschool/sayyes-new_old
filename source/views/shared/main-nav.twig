@@ -1,9 +1,0 @@
-<nav class="main-nav {{ classes }}">
-	<ul class="nav">
-		{% for navLink in main_nav %}
-		<li class="nav__item">
-			<a href="{{ site.dir }}{{ navLink.path }}" class="nav__link" {% if permalink == navLink.path %} aria-current="page"{% endif %}>{{ navLink.text }}</a>
-		</li>
-		{% endfor %}
-	</ul>
-</nav>
