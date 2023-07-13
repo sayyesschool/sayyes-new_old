@@ -1,8 +1,9 @@
 .logo {
-	display: inline-flex;
+	display: block;
+	inline-size: min-content;
 	border-radius: 1em;
 }
 
 .logo__image {
-	display: inline-flex;
+	display: block;
 }
