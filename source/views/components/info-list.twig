@@ -1,0 +1,22 @@
+{#
+# Template for the key/value list
+# @param {Object} classes - Classes for the tags (separated by spaces).
+# @param {Array} items - List of key/value pairs.
+# @requires ./link.twig
+#}
+<dl class="info-list {{ classes.list }}">
+	{% for item in items %}
+	<div class="info-list__item {{ classes.item }}">
+		<dt class="info-list__key {{ classes.key }} {% if item.is_key_hidden %}visually-hidden{% endif %}">{{ item.key }}:</dt>
+		{% for value in item.values %}
+		<dd class="info-list__value {{ classes.value }}">
+			{% if value.url or value.slug %}
+			{{ include("./link.twig", { link: value }) }}
+			{% else %}
+			{{ value.text }}
+			{% endif %}
+		</dd>
+		{% endfor %}
+	</div>
+	{% endfor %}
+</dl>
