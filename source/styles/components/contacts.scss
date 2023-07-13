@@ -1,26 +1,10 @@
 .contacts {
-	display: grid;
-
 	&_direction {
 		&_inline {
-			grid-template-columns: repeat(3, auto);
-			grid-column-gap: var(--col-gap);
+			display: flex;
+			column-gap: var(--col-gap);
 		}
 	}
-}
-
-.contacts__connections {
-	grid-column: 1 / 2;
-	grid-row: 1 / span 2;
-}
-
-.contacts__phones {
-	grid-column: 2 / 3;
-	grid-row: 1 / span 2;
-}
-
-.contacts__info {
-	grid-column: 3 / 4;
 
 	& address {
 		font-style: normal;
@@ -34,6 +18,8 @@
 
 .contacts__link {
 	--icon-size: 16px;
+	display: flex;
+	border-radius: 1em;
 	color: inherit;
 
 	&_icon {

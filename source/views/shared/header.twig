@@ -29,13 +29,11 @@
 				</dd>
 				{% endfor %}
 			</div>
-			<div class="contacts__info">
+			<div class="contacts__address">
 				<dt class="visually-hidden">Адрес:</dt>
-				<dd class="contacts__value"><address>Москва</address></dd>
-			</div>
-			<div class="contacts__info">
-				<dt class="visually-hidden">Время работы</dt>
-				<dd class="contacts__value">ПН-ПТ с 12:00 до 21:00</dd>
+				{% for address in contacts.address_short %}
+				<dd class="contacts__value"><address>{{ address.text }}</address></dd>
+				{% endfor %}
 			</div>
 		</dl>
 		<ul class="main-header__list nav">

@@ -76,6 +76,14 @@
 				"href": "https://wa.me/79295546599",
 				"icon": "whatsapp"
 			}
+		],
+		"address_short": [
+			{
+				"text": "Москва"
+			},
+			{
+				"text": "ПН-ПТ с 12:00 до 21:00"
+			}
 		]
 	},
 	"images": {

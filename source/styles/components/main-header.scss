@@ -37,6 +37,11 @@
 	}
 }
 
+.main-header__logo {
+	inline-size: max-content;
+	align-self: start;
+}
+
 .main-header__list {
 	margin: 0;
 	padding: 0;
