@@ -1,0 +1,26 @@
+.social {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.social__link {
+	&_has-icon {
+		--has-icon: "";
+		--icon-size: 24px;
+		--elem-size: 50px;
+		--icon-border: 2px solid currentcolor;
+		--icon-border-radius: var(--elem-size);
+		display: block;
+		border: var(--icon-border);
+		border-radius: var(--icon-border-radius);
+
+		// $socials: telegram, instagram, youtube;
+
+		// @each $social in socials {
+		// 	&_#{$social} {
+		// 		--icon-shape: url("#{$stack}#{$social}");
+		// 	}
+		// }
+	}
+}
