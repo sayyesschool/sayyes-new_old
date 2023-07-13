@@ -1,0 +1,14 @@
+{#
+# Template for the link.
+#
+# @param {String} link_classes - Classes to add to the link tag (separated by spaces).
+# @param {Object} link - Options object for the link.
+# @param {String} link.text - Link Text
+# @param {String} [link.url] - URL to set to the href attribute.
+# @param {String} [link.slug] - The page to which the link refers.
+# @param {String} [link.icon] - The name of the icon for the link.
+# @param {Boolean} [link.is_text_hidden] - Whether you need to accessibly hide the link text.
+#}
+<a class="link {{ link_classes }}" href="{{ link.url ? link.url : link.slug ? "#{site.dir}#{link.slug}/" : "" }}" {% if link.url %}rel="noreferer noopener" target="_blank"{% endif %} {% if link.icon %}style="--icon-shape: url({{ site.dir }}assets/icons/stack.svg#{{ link.icon }});"{% endif %}>
+	<span class="{% if link.is_text_hidden %}visually-hidden{% endif %}">{{ link.text }}</span>
+</a>

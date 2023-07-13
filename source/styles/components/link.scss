@@ -12,9 +12,12 @@
 	&::before {
 		content: var(--has-icon);
 		display: block;
+		box-sizing: border-box;
 		block-size: var(--elem-size, var(--icon-size));
 		inline-size: var(--elem-size, var(--icon-size));
 		background: var(--icon-fill, currentcolor);
+		border: var(--icon-border);
+		border-radius: var(--icon-border-radius);
 		mask: var(--icon-shape) no-repeat center / var(--icon-size);
 	}
 }
