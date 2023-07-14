@@ -1,6 +1,6 @@
 .main-header {
 	--main-header-bg-color: var(--violet-active);
-	--main-header-offset: calc(var(--wide-offset) + var(--col-gap));
+	--main-header-offset: calc(var(--pg__offset-wide) + var(--pg__col-gap));
 	position: relative;
 	z-index: 1;
 	display: flex;

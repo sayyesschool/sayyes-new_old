@@ -21,14 +21,14 @@
 	font-weight: 600;
 	line-height: normal;
 	display: grid;
-	gap: var(--col-gap);
+	gap: var(--pg__col-gap);
 	grid-template-columns:
 		[logo-start contacts-start legal-start]
-		var(--col-size-4)
+		var(--pg__col-size_4)
 		[logo-end contacts-end legal-end nav-start social-start copyright-start]
-		var(--col-size-3)
+		var(--pg__col-size_3)
 		[social-end copyright-end license-start production-start]
-		var(--col-size-5)
+		var(--pg__col-size_5)
 		[nav-end license-end production-end];
 	grid-template-areas:
 		"logo      nav       nav"
@@ -70,8 +70,8 @@
 .main-footer__nav-list {
 	--items-row-gap: 4px;
 	display: grid;
-	grid-template-columns: var(--col-size-3) var(--col-size-2) var(--col-size-3);
-	column-gap: var(--col-gap);
+	grid-template-columns: var(--pg__col-size_3) var(--pg__col-size_2) var(--pg__col-size_3);
+	column-gap: var(--pg__col-gap);
 }
 
 .main-footer__contacts {

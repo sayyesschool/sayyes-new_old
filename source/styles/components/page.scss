@@ -1,22 +1,15 @@
 .page {
-	--full-offset: 1fr;
-	--wide-offset: 130px;
-	--col-gap: 20px;
-	--col-count: 12;
-	--col-size-1: 90px;
+	--pg__offset-full: 1fr;
+	--pg__offset-wide: 130px;
+	--pg__col-gap: 20px;
+	--pg__col-count: 12;
+	--pg__col-size_1: 90px;
 
 	@for $col from 2 through 12 {
-		--col-size-#{$col}: calc(var(--col-size-1) * #{$col} + var(--col-gap) * #{$col - 1});
+		--pg__col-size_#{$col}: calc(var(--pg__col-size_1) * #{$col} + var(--pg__col-gap) * #{$col - 1});
 	}
-	--template-main:
-		[full-start] var(--full-offset)
-		[wide-start] var(--wide-offset)
-		[narrow-start] var(--col-size-12)
-		[narrow-end] var(--wide-offset)
-		[wide-end] var(--full-offset)
-		[full-end];
-	--template-size-narrow: var(--col-size-12);
-	--template-size-wide: calc(var(--col-size-12) + 2 * (var(--col-gap) + var(--wide-offset)));
+	--pg__size-narrow: var(--pg__col-size_12);
+	--pg__size-wide: calc(var(--pg__col-size_12) + 2 * (var(--pg__col-gap) + var(--pg__offset-wide)));
 
 	min-block-size: 100%;
 	display: grid;
@@ -37,36 +30,23 @@
 
 .page__centerer {
 	margin-inline: auto;
-	column-gap: var(--col-gap);
+	inline-size: var(--pg__size-narrow);
 	display: grid;
-	grid-template-columns:
-		var(--no-indent,)
-		[center-start]
-		var(--template-size-narrow)
-		[center-end]
-		var(--no-indent,);
+	grid-template-columns: 1fr;
 	align-content: start;
+	column-gap: var(--pg__col-gap);
 
-	&_size_narrow {
-		grid-template-columns:
-			var(--no-indent, [full-start] 1fr [center-start])
-			var(--template-size-narrow)
-			var(--no-indent, [center-end] 1fr [full-end]);
-	}
+	&_size {
+		&_narrow {
+			inline-size: var(--pg__size-narrow);
+		}
 
-	&_size_wide {
-		grid-template-columns:
-			var(--no-indent, [full-start] 1fr [center-start])
-			var(--template-size-wide)
-			var(--no-indent, [center-end] 1fr [full-end]);
-	}
+		&_wide {
+			inline-size: var(--pg__size-wide);
+		}
 
-	&_size_full {
-		grid-template-columns: 1fr;
-	}
-
-	&_has-no-indent {
-		--teplate-indent: 1fr;
-		margin-inline: 0;
+		&_full {
+			inline-size: auto;
+		}
 	}
 }
