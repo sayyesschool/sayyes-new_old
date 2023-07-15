@@ -3,6 +3,7 @@
 $stack: "../../assets/icons/stack.svg#";
 
 :root {
+	// Design colors
 	--yellow:			#ffd754;
 	--yellow-hover:		#ffde76;
 	--yellow-active:	#ffce2d;
@@ -24,6 +25,19 @@ $stack: "../../assets/icons/stack.svg#";
 	--color-main: var(--black);
 	--color-accent: var(--violet);
 
+	// Project colors
+	--color__text_theme_light: var(--black);
+	--color__text_theme_dark: var(--white);
+	--color__bg_theme_light: var(--bg-color);
+	--color__bg_theme_dark: #20043d; // Взят где-то с центра hero на главной
+	--color__bg_tmp_main-header: var(--violet-active); // Имя временное
+	--color__bg_tmp_main-footer: var(--white); // Имя временное
+	--color__mark_theme_light: var(--violet);
+	--color__mark_theme_dark: var(--yellow);
+	--color__accent: var(--pink);
+
+	accent-color: var(--color__accent);
+
 	--font-size-main: 24px;
 	--font-size-h1: 90px;
 	--font-size-h2: 75px;
@@ -34,4 +48,6 @@ $stack: "../../assets/icons/stack.svg#";
 	--line-height-h2: 1;
 	--line-height-h3: 1;
 	--line-height-h4: 35px;
+
+	--border-radius-main: 30px;
 }

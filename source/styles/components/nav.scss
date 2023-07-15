@@ -2,8 +2,8 @@
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
-	column-gap: var(--nav-item-gap, 30px);
-	margin-block: 10px;
+	column-gap: var(--nav__item-gap, 30px);
+	margin-block: var(--nav__mb, 10px);
 	margin-inline: 0;
 	padding: 0;
 }

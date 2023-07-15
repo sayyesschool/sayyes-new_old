@@ -1,6 +1,6 @@
 .main-header {
-	--main-header-bg-color: var(--violet-active);
-	--main-header-offset: calc(var(--pg__offset-wide) + var(--pg__col-gap));
+	--main-header_color_bg: var(--color__bg_tmp_main-header);
+	--main-header_offset: calc(var(--pg__offset-wide) + var(--pg__col-gap));
 	position: relative;
 	z-index: 1;
 	display: flex;
@@ -10,11 +10,11 @@
 	line-height: normal;
 	font-size: 14px;
 	font-weight: 800;
-	color: var(--white);
-	background-color: var(--main-header-bg-color);
+	color: var(--color__text_theme_dark);
+	background-color: var(--main-header_color_bg);
 
 	&:hover { // WIP: Временно по ховеру.
-		--main-header-offset: 50vw;
+		--main-header_offset: 50vw;
 	}
 
 	&::after {
@@ -23,11 +23,11 @@
 		position: absolute;
 		z-index: -1;
 		inset-block: 0;
-		inset-inline: calc(-1 * var(--main-header-offset)) 0;
+		inset-inline: calc(-1 * var(--main-header_offset)) 0;
 		block-size: 100%;
 		border-radius: 20px;
-		background-color: var(--main-header-bg-color);
-		box-shadow: var(--main-header-offset) 0 0 0 var(--main-header-bg-color);
+		background-color: var(--main-header_color_bg);
+		box-shadow: var(--main-header_offset) 0 0 0 var(--main-header_color_bg);
 
 		@media not (prefers-reduced-motion) {
 			transition:
