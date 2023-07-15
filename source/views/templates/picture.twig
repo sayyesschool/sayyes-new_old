@@ -35,6 +35,11 @@
 					width="{{ size.width }}"
 					height="{{ size.height }}"
 					alt="{{ alt }}"
+					{% if attrs[0].name and attrs[0].value %}
+					{% for attr in attrs -%}
+						{{ attr.name }}="{{ attr.value }}"
+					{%- endfor %}
+					{% endif %}
 				>
 
 			{%- endif -%}

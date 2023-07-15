@@ -253,7 +253,7 @@
 		}
 	],
 	"images": {
-		"hero": {
+		"hero-main": {
 			"ext": "jpg",
 			"maxdppx": 2,
 			"sizes": [

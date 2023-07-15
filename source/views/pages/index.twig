@@ -2,7 +2,23 @@
 {% extends "../layouts/base.twig" %}
 
 {% block main %}
-<main class="main-content page__centerer">
+<main class="main-content">
 	{{ include("../components/heading.twig", { heading: { hidden: true } }) }}
+
+	{% with {
+		heading: "Исполняем мечты о свободном английском",
+		image_name: "hero-main",
+		image_alt: "Команда преподавателей школы.",
+		image_caption: "Команда мечты"
+	} %}
+		{% set description %}
+			<ul>
+				<li><a href="javascript:undefined">Очно</a> в Москве и <a href="javascript:undefined">онлайн</a></li>
+				<li>С заботой о вашем прогрессе</li>
+				<li>В атмосфере дружбы и уюта</li>
+			</ul>
+		{% endset %}
+	{{ include("../components/hero.twig") }}
+	{% endwith  %}
 </main>
 {% endblock %}
