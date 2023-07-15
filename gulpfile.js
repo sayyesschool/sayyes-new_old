@@ -127,7 +127,7 @@ export function copyImages () {
 }
 
 export function copyFonts () {
-	let fontsGlogs = readJsonFile(PATH_TO_DATA).fonts.map((font) => `node_modules/@fontsource${font.isVariable ? `-variable` : ``}/${font.family}/files/*{cyrillic,latin}*-wght-*.woff2`)
+	let fontsGlogs = readJsonFile(PATH_TO_DATA).fonts.map((font) => `node_modules/@fontsource${font.isVariable ? `-variable` : ``}/${font.family}/files/*{cyrillic,latin,vietnamese}*-wght-*.woff2`)
 	return src(fontsGlogs).pipe(dest(`${PATH_TO_DIST}assets/fonts`))
 }
 
