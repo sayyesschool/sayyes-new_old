@@ -6,7 +6,7 @@
 		{{ description|raw }}
 	</div>
 
-	{{ include('../templates/picture.twig', { name: image_name, class: "hero__image", alt: image_alt, attrs: [{ name: "aria-describedby", value: "caption_#{image_name}" }] }) }}
+	{{ include('./picture.twig', { name: image_name, class: "hero__image", alt: image_alt, attrs: [{ name: "aria-describedby", value: "caption_#{image_name}" }] }) }}
 	{% if image_caption %}
 	<div id="caption_{{ image_name }}" class="hero__caption caption" aria-hidden="true">{{ image_caption }}</div>
 	{% endif %}
