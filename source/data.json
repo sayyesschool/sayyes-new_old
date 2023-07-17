@@ -261,6 +261,11 @@
 					"viewport": "desktop",
 					"width": 1600,
 					"height": 740
+				},
+				{
+					"viewport": "mobile",
+					"width": 1600,
+					"height": 740
 				}
 			]
 		},
@@ -270,6 +275,11 @@
 			"sizes": [
 				{
 					"viewport": "desktop",
+					"width": 530,
+					"height": 550
+				},
+				{
+					"viewport": "mobile",
 					"width": 530,
 					"height": 550
 				}
@@ -283,13 +293,17 @@
 					"viewport": "desktop",
 					"width": 530,
 					"height": 550
+				},
+				{
+					"viewport": "mobile",
+					"width": 530,
+					"height": 550
 				}
 			]
 		}
 	},
 	"viewports": {
-		"desktop": 1920,
-		"tablet": 1280,
+		"desktop": 1600,
 		"mobile": null
 	}
 }
