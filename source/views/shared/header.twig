@@ -3,7 +3,7 @@
 		{{ include("../components/logo.twig", { classes: "main-header__logo", fill: "white" }) }}
 		<ul class="main-header__list nav">
 			<li class="nav__item nav__item_is-decorated">
-				<a class="nav__link link" href="">Бесплатный урок</a>
+				<a class="nav__link link" href="#free_lesson">Бесплатный урок</a>
 			</li>
 			<li class="nav__item">
 				<a class="nav__link link" href="">Онлайн тест</a>
@@ -43,7 +43,7 @@
 		</ul>
 	</div>
 
-	<nav class="main-nav {{ classes }}">
+	<nav class="page__main-nav main-nav {{ classes }}">
 		<ul class="main-nav__list nav">
 			{% for navLink in main_nav %}
 			<li class="nav__item">

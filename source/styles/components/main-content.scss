@@ -1,5 +1,6 @@
 .main-content {
 	display: grid;
 	row-gap: var(--pg__col-size_2);
+	padding-block-start: var(--header-block-size, 118px);
 	padding-block-end: var(--pg__col-size_2);
 }

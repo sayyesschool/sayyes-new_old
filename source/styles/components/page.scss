@@ -19,6 +19,10 @@
 	font-variant-numeric: lining-nums;
 	color: var(--color__text_theme_light);
 	background-color: var(--color__bg_theme_light);
+
+	@media not (prefers-reduced-motion) {
+		scroll-behavior: smooth;
+	}
 }
 
 .page__body {
@@ -49,4 +53,8 @@
 			inline-size: auto;
 		}
 	}
+}
+
+.page__main-nav {
+	margin-block-start: 70px;
 }

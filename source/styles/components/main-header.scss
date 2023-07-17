@@ -1,8 +1,9 @@
 .main-header {
 	--main-header_color_bg: var(--color__bg_tmp_main-header);
-	--main-header_offset: calc(var(--pg__offset-wide) + var(--pg__col-gap));
-	position: relative;
-	z-index: 1;
+	--main-header_offset: calc(var(--pg__offset-wide) + var(--pg__col-gap) + 50vw * var(--is-page-scrolled, 0));
+	position: fixed;
+	z-index: 10;
+	inline-size: var(--pg__size-narrow);
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-start;
@@ -12,10 +13,6 @@
 	font-weight: 800;
 	color: var(--color__text_theme_dark);
 	background-color: var(--main-header_color_bg);
-
-	&:hover { // WIP: Временно по ховеру.
-		--main-header_offset: 50vw;
-	}
 
 	&::after {
 		content: "";

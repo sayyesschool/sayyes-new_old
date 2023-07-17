@@ -1,3 +1,7 @@
+.section {
+	scroll-margin-top: var(--header-block-size, 70px);
+}
+
 .section__header {
 	margin-inline: auto;
 	inline-size: var(--pg__col-size_12);

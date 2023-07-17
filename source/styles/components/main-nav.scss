@@ -1,10 +1,38 @@
 .main-nav {
+	position: fixed;
+	z-index: 9;
+	inset-block-start: calc(-1 * var(--main-nav_block-size, 48px) * var(--main-nav_is-hidden, 0));
+	inline-size: var(--pg__size-narrow);
 	display: grid;
 	padding-block: 6px;
 	grid-template-columns: auto;
 	line-height: normal;
 	font-size: 14px;
 	font-weight: 800;
+	background: var(--color__bg_theme_light);
+
+	@media not (prefers-reduced-motion) {
+		transition: inset-block-start 0.2s ease-in-out;
+	}
+
+	&:focus-within {
+		--main-nav_is-hidden: 0;
+	}
+
+	&_is-hidden {
+		inset-block-start: -48px;
+	}
+
+	&::before {
+		content: "";
+		position: absolute;
+		inset-inline-end: 0;
+		z-index: -1;
+		block-size: 100%;
+		inline-size: 100vw;
+		background: var(--color__bg_theme_light);
+		box-shadow: 100vw 0 0 0 var(--color__bg_theme_light);
+	}
 }
 
 .main-nav__list {
