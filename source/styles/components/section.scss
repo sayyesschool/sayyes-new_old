@@ -1,0 +1,18 @@
+.section__header {
+	margin-inline: auto;
+	inline-size: var(--pg__col-size_12);
+	display: grid;
+	row-gap: 32px; // 1em???
+}
+
+.section__heading {
+	margin-block: 0;
+	inline-size: var(--pg__col-size_8); // до адаптива
+}
+
+.section__description {
+	margin-block: 0;
+	inline-size: var(--pg__col-size_6); // до адаптива
+	font-size: 32px;
+	line-height: 35px;
+}

@@ -1,0 +1,45 @@
+.field {
+	display: flex;
+	flex-wrap: wrap;
+	column-gap: 10px;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.field__input {
+	box-sizing: border-box;
+	margin: 0;
+	padding-block: 11px;
+	padding-inline: 20px;
+	inline-size: 100%;
+	font: inherit;
+	line-height: normal;
+	border: none;
+	border-radius: var(--border-radius-main);
+	background: var(--color__bg_theme_light);
+
+	&[type="radio"] {
+		--icon-shape: url("#{$stack}radio_button");
+		--size: 24px;
+		appearance: none;
+		margin: -2px;
+		padding: 0;
+		display: grid;
+		grid-template-areas: "input";
+		block-size: var(--size);
+		inline-size: var(--size);
+		min-inline-size: var(--size);
+		border-radius: calc(var(--size) / 4);
+		background: transparent;
+
+		&:checked {
+			--icon-shape: url("#{$stack}radio_tick");
+		}
+
+		&::before {
+			content: "";
+			grid-area: input;
+			background: var(--icon-shape) no-repeat center / cover;
+		}
+	}
+}

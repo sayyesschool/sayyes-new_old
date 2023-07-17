@@ -1,0 +1,16 @@
+.button {
+	box-sizing: border-box;
+	inline-size: 100vw;
+	max-inline-size: var(--pg__col-size_5);
+	padding-block: 26px;
+	padding-inline: 52px;
+	line-height: normal;
+	font-style: normal;
+	font-size: 24px;
+	font-weight: 700;
+	text-align: center;
+	border: none;
+	border-radius: 50vw;
+	color: var(--color__text_theme_light);
+	background-color: var(--yellow);
+}

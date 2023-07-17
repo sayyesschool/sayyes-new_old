@@ -1,10 +1,6 @@
-let mainNav = document.querySelector(`.main-nav`)
-let mainNavToggle = document.querySelector(`.main-nav__toggle`)
+import { Tabs } from "./tabs.js"
 
-mainNav.classList.remove(`main-nav--nojs`)
-mainNav.classList.replace(`main-nav--opened`, `main-nav--closed`)
-
-mainNavToggle.addEventListener(`click`, () => {
-	mainNav.classList.toggle(`main-nav--closed`)
-	mainNav.classList.toggle(`main-nav--opened`)
+window.addEventListener(`load`, () => {
+	let tablists = document.querySelectorAll(`[role=tablist]`)
+	tablists.forEach((tablist) => { new Tabs(tablist) })
 })

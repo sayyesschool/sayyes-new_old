@@ -1,0 +1,17 @@
+.heading {
+	line-height: 1;
+	font-weight: 700;
+
+	&_lvl_1 {
+		font-size: 75px;
+	}
+
+	&_lvl_2 {
+		font-size: 60px;
+	}
+
+	&_lvl_3 {
+		font-size: 32px;
+		line-height: 35px;
+	}
+}

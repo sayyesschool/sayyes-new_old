@@ -263,6 +263,28 @@
 					"height": 740
 				}
 			]
+		},
+		"dream-work": {
+			"ext": "png",
+			"maxdppx": 2,
+			"sizes": [
+				{
+					"viewport": "desktop",
+					"width": 530,
+					"height": 550
+				}
+			]
+		},
+		"dream-edu": {
+			"ext": "png",
+			"maxdppx": 2,
+			"sizes": [
+				{
+					"viewport": "desktop",
+					"width": 530,
+					"height": 550
+				}
+			]
 		}
 	},
 	"viewports": {

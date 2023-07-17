@@ -21,6 +21,7 @@ $stack: "../../assets/icons/stack.svg#";
 	--pop-up-window:	#f8f0ee;
 	--unnamed-color-1:	#f9e2de;
 	--unnamed-color-2:	#f6e7e5;
+	--unnamed-color-3:	#fad352;
 	--grey:				#e5e3e2;
 	--color-main: var(--black);
 	--color-accent: var(--violet);
@@ -34,6 +35,7 @@ $stack: "../../assets/icons/stack.svg#";
 	--color__bg_tmp_main-footer: var(--white); // Имя временное
 	--color__mark_theme_light: var(--violet);
 	--color__mark_theme_dark: var(--yellow);
+	--color__mark_theme_neutral: var(--black);
 	--color__accent: var(--pink);
 
 	accent-color: var(--color__accent);

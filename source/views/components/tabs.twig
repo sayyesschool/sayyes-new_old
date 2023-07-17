@@ -1,0 +1,20 @@
+<div class="tabs">
+	<div class="tabs__header">
+		<h3 class="tabs__heading heading heading_lvl_2" id="tablist-{{ tablist_index }}">Оставьте заявку на пробный урок</h3>
+		<div class="tabs__description">Мы свяжемся с вами, запишем на урок, ответим на вопросы, и расскажем о курсах</div>
+	</div>
+	<div class="tabs__list" role="tablist" aria-labelledby="tablist-{{ tablist_index }}">
+		{% for tab in tabs %}
+		<button class="tabs__tab" id="tablist_{{ tablist_index }}_tab_{{ loop.index }}" type="button" role="tab" aria-selected="true" aria-controls="tablist_{{ tablist_index }}_panel_{{ loop.index }}" {% if loop.index != 1 %}tabindex="-1"{% endif %}>{{ tab.label }}</button>
+		{% endfor %}
+	</div>
+
+	{% from "./request-form.twig" import request_form %}
+	<div class="tabs__panels">
+		{% for tab in tabs %}
+		<div class="tabs__panel {{ loop.index != 1 ? "tabs__panel_is-hidden" }}" id="tablist_{{ tablist_index }}_panel_{{ loop.index }}" role="tabpanel" tabindex="0" aria-labelledby="tablist_{{ tablist_index }}_tab_{{ loop.index }}">
+			{{ request_form(tab.name, tablist_index) }}
+		</div>
+		{% endfor %}
+	</div>
+</div>

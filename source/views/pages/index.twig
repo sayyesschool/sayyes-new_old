@@ -20,5 +20,58 @@
 		{% endset %}
 	{{ include("../components/hero.twig") }}
 	{% endwith  %}
+
+	{% with {
+		tablist_index: 1,
+		tabs: [
+			{
+				name: "adults",
+				label: "Взрослым"
+			},
+			{
+				name: "children",
+				label: "Детям"
+			}
+		]
+	} %}
+	<section class="section page__centerer page__centerer_size_wide">
+		<header class="section__header">
+			<h2 class="section__heading heading heading_lvl_2">Запишитесь на <span {# TODO: Выделение цветом или ссылка? #}>бесплатный</span> пробный урок</h2>
+			<div class="section__description">
+				На уроке вы узнаете свой уровень, оцените методику школы, познакомитесь с преподавателем
+			</div>
+		</header>
+
+		{{ include("../components/tabs.twig") }}
+
+	</section>
+	{% endwith %}
+
+	{% with {
+		tablist_index: 2,
+		tabs: [
+			{
+				name: "adults",
+				label: "Взрослым"
+			},
+			{
+				name: "children",
+				label: "Детям"
+			}
+		]
+	} %}
+	<section class="section page__centerer page__centerer_size_wide">
+		<header class="section__header">
+			<h2 class="section__heading heading heading_lvl_2">Запишитесь на <span {# TODO: Выделение цветом или ссылка? #}>бесплатный</span> пробный урок</h2>
+			<div class="section__description">
+				На уроке вы узнаете свой уровень, оцените методику школы, познакомитесь с преподавателем
+			</div>
+		</header>
+
+		{{ include("../components/tabs.twig") }}
+
+	</section>
+	{% endwith %}
+
 </main>
 {% endblock %}

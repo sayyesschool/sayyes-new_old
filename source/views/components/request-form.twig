@@ -1,0 +1,69 @@
+{% macro request_form(ns, index) %}
+<form class="form form_variant_{{ ns }}" id="form_{{ index }}_{{ ns }}_form" action="https://echo.htmlacademy.ru">
+	<div class="form__fieldset" role="group" aria-labelledby="form_{{ index }}_{{ ns }}_eduform_legend">
+		<div class="form__legend" id="form_{{ index }}_{{ ns }}_eduform_legend">Выберите желаемый формат обучения:</div>
+		{% set formats = [
+			{
+				title: "offline",
+				label: "Очно в Москве"
+			},
+			{
+				title: "online",
+				label: "Онлайн"
+			},
+			{
+				title: "undecided",
+				label: "Не знаю"
+			}
+		] %}
+		<ul class="form__fieldlist list list_is-unmarked list_dir_inline">
+			{% for format in formats %}
+			<li class="list__item form__fielditem field">
+				<input class="field__input" id="form_{{ index }}_{{ ns }}_{{ format.title}}" name="{{ ns }}_format" type="radio">
+				<label class="field__label" for="form_{{ index }}_{{ ns }}_{{ format.title}}">{{ format.label}}</label>
+			</li>
+			{% endfor %}
+		</ul>
+	</div>
+	<div class="form__fieldset" role="group" aria-labelledby="form_{{ index }}_{{ ns }}_contacts_legend">
+		<div class="visually-hidden" id="form_{{ index }}_{{ ns }}_contacts_legend">Ваши данные:</div>
+		<ul class="form__fieldlist">
+			{% if ns == "children" %}
+			<li class="form__field field">
+				<label class="visually-hidden" for="form_{{ index }}_{{ ns }}_child_name">Имя ребёнка:</label>
+				<input class="field__input" id="form_{{ index }}_{{ ns }}_child_name" name="{{ ns }}_child_name" type="text" placeholder="Имя ребёнка" required>
+			</li>
+			<li class="form__field form__field_is-shorten field">
+				<label class="visually-hidden" for="form_{{ index }}_{{ ns }}_child_age">Возраст ребёнка:</label>
+				<select class="field__input field__input_type_combobox" id="form_{{ index }}_{{ ns }}_child_age" name="{{ ns }}_child_age" required>
+					<option value="" selected disabled>Возраст</option>
+					<option value="5-7">5–7 лет</option>
+					<option value="7-10">7–10 лет</option>
+					<option value="11-16">11–16 лет</option>
+				</select>
+			</li>
+			{% endif %}
+			<li class="form__field field">
+				<label class="visually-hidden" for="form_{{ index }}_{{ ns }}_name">Имя{{ ns == "children" ? " родителя" }}:</label>
+				<input class="field__input" id="form_{{ index }}_{{ ns }}_name" name="{{ ns }}_name" type="text" placeholder="Имя{{ ns == "children" ? " родителя" }}" required>
+			</li>
+			<li class="form__field field">
+				<label class="visually-hidden" for="form_{{ index }}_{{ ns }}_phone">Телефон:</label>
+				<input class="field__input" id="form_{{ index }}_{{ ns }}_phone" name="{{ ns }}_phone" type="tel" placeholder="+7 (999) 999-99-99" required>
+			</li>
+		</ul>
+	</div>
+	<div class="form__fieldset field_type_combobox field">
+		<label class="form__legend" for="form_{{ index }}_{{ ns }}_way_to_contact">Выберите удобный способ связи:</label>
+		<select class="field__input field__input_type_combobox" id="form_{{ index }}_{{ ns }}_way_to_contact" name="{{ ns }}_way_to_contact">
+			<option value="callback" selected>Позвоните мне</option>
+			<option value="whatsapp">Напишите мне в WhatsApp</option>
+			<option value="telegram">Напишите мне в Telegram</option>
+		</select>
+	</div>
+	<div class="form__submit">
+		<div class="form__disclaimer">Я согласен с <a class="link" href="">политикой обработки персональных данных</a></div>
+		<button class="form__button form__button_theme_{{ ns }} button" type="submit">Оставить заявку</button>
+	</div>
+</form>
+{% endmacro %}

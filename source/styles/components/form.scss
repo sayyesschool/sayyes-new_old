@@ -1,0 +1,120 @@
+.form {
+	display: grid;
+	row-gap: 19px;
+	font-size: 24px;
+	font-weight: 500;
+	line-height: 25px;
+
+	&_variant {
+		&_adults {
+			--caption__text: "Ольга мечтает о\a0карьере в\a0международной компании";
+			--caption__color: var(--color__mark_theme_light);
+			--caption__shift: translate(170px, -72px) rotate(-13deg);
+			--caption__arrow: url("#{$stack}arrow_curved-3") no-repeat bottom 150px left 360px / 70px 40px;
+			--tab__bg: var(--yellow);
+			--submit__color_text: var(--color__text_theme_dark);
+			--submit__color_bg: var(--color__mark_theme_neutral);
+
+			@include bg-image(dream-work);
+		}
+
+		&_children {
+			--caption__text: "Родители Вани планируют его учебу за\a0границей";
+			--caption__color: var(--unnamed-color-3); // TODO: Уточни цвет.
+			--caption__shift: translate(200px, -92px) rotate(-13deg);
+			--caption__arrow: url("#{$stack}arrow_curved-4") no-repeat bottom 150px left 390px / 86px 86px;
+			--tab__bg: var(--pale-purple);
+			--submit__color_text: var(--color__text_theme_light);
+			--submit__color_bg: var(--color__mark_theme_dark);
+			// TODO: Продумать переменные цветов для кнопок. Использовать эти нелогично.
+
+			@include bg-image(dream-edu);
+		}
+	}
+
+	&::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		z-index: -1;
+		border-radius: var(--border-radius-main);
+		background:
+			var(--caption__arrow),
+			var(--bg-image) no-repeat bottom 0 left 390px / 530px 550px;
+		background-color: var(--tab__bg);
+	}
+
+	&::after {
+		content: var(--caption__text);
+		position: absolute;
+		inset-inline-start: 0;
+		inset-block-end: 0;
+		transform: var(--caption__shift);
+		z-index: -1;
+		inline-size: 230px;
+		font-family: var(--font-family-accent);
+		font-size: 24px;
+		font-style: italic;
+		line-height: 22px;
+		color: var(--caption__color);
+	}
+}
+
+.form__fieldset {
+	display: grid;
+}
+
+.form__legend {
+	display: block;
+	inline-size: 290px;
+	margin-block: 5px;
+	font-weight: 600;
+}
+
+.form__fieldlist {
+	margin: 5px 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: 10px;
+}
+
+.form__field {
+	flex-basis: 290px;
+	flex-grow: 1;
+
+	&_is-shorten {
+		max-inline-size: 230px;
+		flex-grow: 0;
+	}
+}
+
+.form__submit {
+	margin-block-start: 41px;
+	display: grid;
+	row-gap: 8px;
+	margin-block-end: 14px;
+}
+
+.form__button {
+	color: var(--submit__color_text);
+	background: var(--submit__color_bg);
+}
+
+.form__disclaimer {
+	order: 1;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 12.306px; // 0.879
+
+	&::before {
+		content: "";
+		display: inline-block;
+		margin-inline: 8px;
+		inline-size: 21px;
+		block-size: 17px;
+		translate: -2px 2px;
+		background: url("#{$stack}checked") no-repeat center / 21px 17px;
+	}
+}
